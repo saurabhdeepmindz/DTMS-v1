@@ -1,0 +1,262 @@
+@layer ww-style-library {
+  @layer definition, instance;
+  @layer definition {
+    @layer normal, custom;
+    @layer normal {
+    }
+    @layer custom {
+    }
+  }
+  @layer instance {
+    @layer normal, custom;
+    @layer normal {
+    }
+    @layer custom {
+    }
+  }
+}
+@layer ww-style-section {
+  @layer normal, custom;
+  @layer normal {
+    @layer atomic, ordered;
+    @layer atomic {
+      .ww-a-ah5kXiW44wImNtcA {
+        height: auto;
+        z-index: unset;
+        max-height: unset;
+      }
+      .ww-a-Y6MTqAnlYkTtOtmG {
+        max-width: unset;
+        min-width: unset;
+        max-height: unset;
+      }
+    }
+    @layer ordered {
+      .ww-s-d0 {
+        min-height: 100vh;
+        display: flex;
+        background-color: var(--7c80aa09-6c05-4c34-8a44-864c208bd326, #F8FAFC);
+      }
+      .ww-s-d0 > .ww-section-element {
+        width: 100%;
+        padding: 48px 24px;
+        min-height: 100vh;
+      }
+      @media (max-width: 991px) {
+        .ww-s-d0 > .ww-section-element {
+          padding: 36px 20px;
+        }
+      }
+      @media (max-width: 767px) {
+        .ww-s-d0 > .ww-section-element {
+          padding: 24px 16px;
+        }
+      }
+      .ww-s-d0 > .ww-section-element.ww-layout {
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+  @layer custom {
+  }
+}
+@layer ww-style-element {
+  @layer normal, custom;
+  @layer normal {
+    @layer atomic, ordered;
+    @layer atomic {
+      .ww-a-aLFMoMI0-uwKjctu {
+        padding: 0;
+        z-index: unset;
+        align-self: unset;
+        display: block;
+        min-width: unset;
+        height: auto;
+        max-height: unset;
+        min-height: unset;
+        font-family: var(--ww-default-font-family);
+      }
+      .ww-a-CQC-UYJF9-3biM3_ {
+        margin: 0;
+        padding: 0;
+        z-index: unset;
+        align-self: var(--ww-section-root-auto-align, unset);
+        min-width: unset;
+        height: auto;
+        max-height: unset;
+        min-height: unset;
+      }
+      .ww-a-YF0k00I-Mi8zOhMt {
+        margin: 0;
+        z-index: unset;
+        align-self: unset;
+        max-width: unset;
+        min-width: unset;
+        height: auto;
+        max-height: unset;
+        min-height: unset;
+      }
+      .ww-a-_nBdtQHLRMkK_dR7 {
+        z-index: unset;
+        align-self: unset;
+        width: auto;
+        max-width: unset;
+        min-width: unset;
+        height: auto;
+        max-height: unset;
+        min-height: unset;
+        font-family: var(--ww-default-font-family);
+      }
+      .ww-a-Uds4CVZOBCUG_xSn {
+        padding: 0;
+        z-index: unset;
+        align-self: unset;
+        display: flex;
+        max-width: unset;
+        min-width: unset;
+        max-height: unset;
+        min-height: unset;
+      }
+      .ww-a-YyvtQJ1aALxh3-nO {
+        margin: 0;
+        padding: 0;
+        z-index: unset;
+        align-self: unset;
+        display: block;
+        max-width: unset;
+        min-width: unset;
+        height: auto;
+        max-height: unset;
+        min-height: unset;
+        font-family: var(--ww-default-font-family);
+      }
+      .ww-a-wepO1Mjw7DgHz3WK {
+        margin: 0;
+        padding: 0;
+        z-index: unset;
+        align-self: unset;
+        max-width: unset;
+        min-width: unset;
+        height: auto;
+        max-height: unset;
+        min-height: unset;
+      }
+      .ww-a-dQVf4AfE6DwFXRwu {
+        padding: 0;
+        z-index: unset;
+        align-self: unset;
+        display: block;
+        max-width: unset;
+        min-width: unset;
+        height: auto;
+        max-height: unset;
+        min-height: unset;
+        font-family: var(--ww-default-font-family);
+      }
+    }
+    @layer ordered {
+      .ww-e-d3e {
+        margin: 0;
+        max-width: 460px;
+        font-size: 16px;
+        line-height: 1.6;
+        font-weight: 400;
+        text-align: center;
+        color: var(--30ece32b-7577-4e0a-bcee-d2bb95f15520, #64748B);
+        white-space-collapse: preserve;
+      }
+      .ww-e-d3r {
+        display: flex;
+        width: 100%;
+        max-width: 540px;
+      }
+      .ww-e-d3r.ww-layout, .ww-e-d3r [data-ww-ls~="d3r"] {
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        gap: 24px;
+      }
+      .ww-e-d3s {
+        padding: 6px 14px;
+        display: inline-flex;
+        background-color: #f1f5f9;
+        border: 1px solid var(--0770f1ef-8f56-47cb-be5e-d539138a2937, #E2E8F0);
+        border-radius: var(--097e82f0-aec6-4ccd-b8f9-391d4c0774c3, 9999px);
+      }
+      .ww-e-d3s.ww-layout, .ww-e-d3s [data-ww-ls~="d3s"] {
+        display: inline-flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: revert-layer;
+      }
+      .ww-e-d3t {
+        margin: 8px 0 0;
+        padding: 12px 24px;
+        display: inline-flex;
+        font-size: 15px;
+        line-height: 20px;
+        font-weight: 500;
+        color: var(--2ff74390-19a6-4722-8e3b-57372656915f, #FFFFFF);
+        white-space-collapse: preserve;
+        background-color: var(--a07edec1-45d3-4ab5-b5c2-68c92f79ca6f, #0F172A);
+        cursor: pointer;
+        transition: all 0.2s ease;
+        border: 1px solid #0000;
+        border-radius: var(--89a07efc-7f56-486e-8b79-da9ba3a64c4a, 10px);
+        --ww-element-transition: all 0.2s ease;
+      }
+      .ww-e-d3t:where(:hover) {
+        background-color: #1e293b;
+      }
+      .ww-e-d3u {
+        margin: 0 8px 0 0;
+        width: 16px;
+        height: 16px;
+      }
+      .ww-e-d3v {
+        font-size: 13px;
+        line-height: 16px;
+        font-weight: 600;
+        color: var(--bc16873d-5b54-43dd-96ba-554913fdcb73, #475569);
+        letter-spacing: .02em;
+        white-space-collapse: preserve;
+      }
+      .ww-e-d3w {
+        display: flex;
+        width: 100%;
+      }
+      .ww-e-d3w.ww-layout, .ww-e-d3w [data-ww-ls~="d3w"] {
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+      }
+      .ww-e-d3x {
+        margin: 0;
+        font-size: 40px;
+        line-height: 1.2;
+        font-weight: 700;
+        text-align: center;
+        color: var(--33fc0a46-dd07-406e-8a3c-2571cdb61e6d, #0F172A);
+        letter-spacing: -.025em;
+        white-space-collapse: preserve;
+      }
+      @media (max-width: 767px) {
+        .ww-e-d3x {
+          font-size: 32px;
+          line-height: 1.25;
+        }
+      }
+    }
+  }
+  @layer custom {
+  }
+}
+@layer ww-style-layout-override {
+}

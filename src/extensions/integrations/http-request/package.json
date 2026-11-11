@@ -1,0 +1,11 @@
+{
+  "name": "@weweb-internal/ext-integration-http-request",
+  "weweb": {
+    "native": true
+  },
+  "version": "0.0.0",
+  "private": true,
+  "exports": {
+    ".": "./http-request.front.js"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "@weweb-internal/ext-integration-custom-auth",
+  "weweb": {
+    "native": true
+  },
+  "version": "0.0.0",
+  "private": true,
+  "exports": {
+    ".": "./custom-auth.front.js"
+  }
+}

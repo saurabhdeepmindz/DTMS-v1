@@ -1,0 +1,13 @@
+{
+  "name": "@weweb-internal/ext-section-99586bd3-2b15-4d6b-a025-6a50d07ca845",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/weweb-assets/base"
+  },
+  "version": "3.1.0",
+  "private": true,
+  "exports": {
+    ".": "./src/wwSection.vue",
+    "./config": "./ww-config.js"
+  }
+}

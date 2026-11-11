@@ -1,1 +1,0 @@
-import './openid.hooks.js';

@@ -1,0 +1,14 @@
+{
+  "name": "@weweb-internal/ext-element-1b1e2173-9b78-42cc-a8ee-a6167caea340",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/weweb-assets/ww-icon"
+  },
+  "version": "3.1.0",
+  "license": "MIT",
+  "private": true,
+  "exports": {
+    ".": "./src/wwElement.vue",
+    "./config": "./ww-config.js"
+  }
+}

@@ -1,0 +1,68 @@
+@layer ww-style-reset, ww-style-component, ww-style-core, ww-style-library, ww-style-section, ww-style-element, ww-style-layout-override, ww-style-runtime;
+@property --ww-content-ww-text-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --ww-style-background-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --ww-style-border {
+  syntax: "*";
+  inherits: false;
+}
+@property --ww-style-display {
+  syntax: "*";
+  inherits: false;
+}
+@property --ww-content-flex-direction-layout-flex {
+  syntax: "*";
+  inherits: false;
+}
+@property --ww-content-flex-wrap-layout-flex {
+  syntax: "*";
+  inherits: false;
+}
+@layer ww-style-library {
+  @layer definition, instance;
+  @layer definition {
+    @layer normal, custom;
+    @layer normal {
+    }
+    @layer custom {
+    }
+  }
+  @layer instance {
+    @layer normal, custom;
+    @layer normal {
+    }
+    @layer custom {
+    }
+  }
+}
+@layer ww-style-section {
+  @layer normal, custom;
+  @layer normal {
+    @layer atomic, ordered;
+    @layer atomic {
+    }
+    @layer ordered {
+    }
+  }
+  @layer custom {
+  }
+}
+@layer ww-style-element {
+  @layer normal, custom;
+  @layer normal {
+    @layer atomic, ordered;
+    @layer atomic {
+    }
+    @layer ordered {
+    }
+  }
+  @layer custom {
+  }
+}
+@layer ww-style-layout-override {
+}

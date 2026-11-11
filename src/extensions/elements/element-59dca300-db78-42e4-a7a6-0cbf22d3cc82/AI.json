@@ -1,0 +1,106 @@
+{
+    "metadata": {
+        "name": "ww-button",
+        "description": "A configurable button element supporting styling, icons, and form submission. Inherits text properties.",
+        "keywords": [
+            "button",
+            "submit",
+            "cta",
+            "action"
+        ],
+        "features": [
+            "Submit and regular button types",
+            "Left and right icon slots",
+            "Disabled state",
+            "Focus, blur, keydown, keyup events",
+            "Form integration with submit type",
+            "Custom button background through element styles"
+        ],
+        "inherit": [
+            "ww-text"
+        ]
+    },
+    "properties": [
+        {
+            "name": "buttonType",
+            "description": "Button type: regular or form submit",
+            "type": "string",
+            "options": [
+                "button",
+                "submit"
+            ],
+            "defaultValue": "button"
+        },
+        {
+            "name": "disabled",
+            "description": "Whether the button is disabled",
+            "type": "boolean",
+            "defaultValue": false
+        },
+        {
+            "name": "hasLeftIcon",
+            "description": "Bindable boolean controlling whether the left icon is shown. Use a boolean value or bind it to a variable or formula. The editor creates a child ww-icon in the leftIcon slot when this toggle is enabled or bound, even when the binding currently evaluates to false. Preserve explicit false values and bindings.",
+            "type": "boolean"
+        },
+        {
+            "name": "hasRightIcon",
+            "description": "Bindable boolean controlling whether the right icon is shown. Use a boolean value or bind it to a variable or formula. The editor creates a child ww-icon in the rightIcon slot when this toggle is enabled or bound, even when the binding currently evaluates to false. Preserve explicit false values and bindings.",
+            "type": "boolean"
+        }
+    ],
+    "states": [
+        {
+            "name": "focus",
+            "description": "Button has focus"
+        },
+        {
+            "name": "disabled",
+            "description": "Button is disabled"
+        },
+        {
+            "name": "active",
+            "description": "Button is active/pressed"
+        }
+    ],
+    "events": [
+        {
+            "name": "focus",
+            "description": "Triggered when the button receives focus"
+        },
+        {
+            "name": "blur",
+            "description": "Triggered when the button loses focus"
+        },
+        {
+            "name": "keydown",
+            "description": "Triggered on key down while focused"
+        },
+        {
+            "name": "keyup",
+            "description": "Triggered on key up while focused"
+        }
+    ],
+    "actions": [],
+    "slots": [
+        {
+            "name": "leftIcon",
+            "description": "Child ww-icon element displayed on the left side of the button text when hasLeftIcon resolves to true. Holds a full ww-icon element (its own uid, style and size), NOT an icon-name string. Enabling or binding hasLeftIcon creates this child in the editor, including while a binding evaluates to false. Keep the child when the toggle becomes false or its binding is removed so the configured icon can be reused. Configure the icon by editing this child ww-icon; never write an icon name string into content.default.leftIcon via editElement (it breaks the icon).",
+            "type": "object"
+        },
+        {
+            "name": "rightIcon",
+            "description": "Child ww-icon element displayed on the right side of the button text when hasRightIcon resolves to true. Holds a full ww-icon element (its own uid, style and size), NOT an icon-name string. Enabling or binding hasRightIcon creates this child in the editor, including while a binding evaluates to false. Keep the child when the toggle becomes false or its binding is removed so the configured icon can be reused. Configure the icon by editing this child ww-icon; never write an icon name string into content.default.rightIcon via editElement (it breaks the icon).",
+            "type": "object"
+        }
+    ],
+    "variables": [],
+    "specifications": [
+        "Inherits text properties from ww-text element",
+        "The text background content property does not exist. Never set content.backgroundColor; use the element style backgroundColor to style the whole button.",
+        "Submit type buttons should be used inside a ww-form-container",
+        "For form submission workflows, trigger them on the form container, not the submit button",
+        "You need to set margin values in icons to create spacing between the icon and text",
+        "Never forget the 'text' prop in the contents. The button will not display without it!"
+    ],
+    "examples": []
+}

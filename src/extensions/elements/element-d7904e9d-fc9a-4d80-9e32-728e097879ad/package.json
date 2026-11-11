@@ -1,0 +1,14 @@
+{
+  "name": "@weweb-internal/ext-element-d7904e9d-fc9a-4d80-9e32-728e097879ad",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/weweb-assets/ww-text"
+  },
+  "version": "3.1.0",
+  "license": "MIT",
+  "private": true,
+  "exports": {
+    ".": "./src/wwElement.vue",
+    "./config": "./ww-config.js"
+  }
+}

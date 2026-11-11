@@ -1,0 +1,10 @@
+{
+  "name": "@weweb-internal/ext-element-00df9115-50ec-4114-9a76-c96c76721e6f",
+  "version": "1.0.0",
+  "description": "WeWeb OTP Input Component with flexible format patterns",
+  "private": true,
+  "exports": {
+    ".": "./src/wwElement.vue",
+    "./config": "./ww-config.js"
+  }
+}

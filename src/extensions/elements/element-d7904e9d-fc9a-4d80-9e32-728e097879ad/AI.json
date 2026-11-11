@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "name": "ww-text",
+    "description": "An HTML text element with multi-language support and configurable HTML tag.",
+    "keywords": [
+      "text",
+      "paragraph",
+      "heading",
+      "label"
+    ],
+    "features": [
+      "Multiple HTML tag options (p, h1-h4, button, div, span)",
+      "Multi-language text content",
+      "Dynamic text binding per language",
+      "Linkable"
+    ],
+    "inherit": [
+      "ww-text"
+    ]
+  },
+  "properties": [
+    {
+      "name": "tag",
+      "description": "HTML tag to render the text element as",
+      "type": "string",
+      "options": [
+        "p",
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "button",
+        "div",
+        "span",
+        "label"
+      ],
+      "defaultValue": "p"
+    },
+    {
+      "name": "text",
+      "description": "Text content as a multi-language object mapping language codes to values, e.g. {'en': 'Hello', 'fr': 'Bonjour'}. The 'text' property itself is NOT bindable: bind each language value individually (e.g. path 'content.default.text.en' with a formula returning a string), never bind the whole 'text' object (path 'content.default.text') to a formula.",
+      "type": "object"
+    }
+  ],
+  "states": [],
+  "events": [],
+  "actions": [],
+  "slots": [],
+  "variables": [],
+  "specifications": [
+    "Text accepts multi-language objects: {en: 'Hello', fr: 'Bonjour'}",
+    "The 'text' property itself is not bindable: binding it (e.g. path 'content.default.text' with a formula) throws an error. Only its per-language values are bindable.",
+    "To bind text dynamically, bind the language value: path 'content.default.text.en' with a formula/JS that returns a string. Never bind 'content.default.text' to a formula that returns an object.",
+    "Available languages are defined in the Page Info variable. Use only these languages in the text object.",
+    "Use appropriate heading tags (h1-h4) for semantic HTML structure"
+  ],
+  "examples": []
+}
