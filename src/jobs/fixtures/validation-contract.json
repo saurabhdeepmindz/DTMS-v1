@@ -1,0 +1,435 @@
+{
+  "version": 1,
+  "dates": [
+    {
+      "name": "UTC",
+      "value": "2026-09-09T09:00:00Z",
+      "expected": "2026-09-09T09:00:00.000Z"
+    },
+    {
+      "name": "Explicit offset",
+      "value": "2026-09-09T09:00:00+02:00",
+      "expected": "2026-09-09T07:00:00.000Z"
+    },
+    {
+      "name": "Missing timezone",
+      "value": "2026-09-09T09:00:00",
+      "expected": null
+    },
+    {
+      "name": "Invalid date",
+      "value": "not-a-date",
+      "expected": null
+    }
+  ],
+  "jobs": [
+    {
+      "name": "Defaults",
+      "input": {},
+      "hosted": true,
+      "selfHosted": true
+    },
+    {
+      "name": "Hosted timeout maximum",
+      "input": {
+        "timeoutMs": 840000
+      },
+      "hosted": true,
+      "selfHosted": true
+    },
+    {
+      "name": "Self-hosted timeout above Lambda limit",
+      "input": {
+        "timeoutMs": 840001
+      },
+      "hosted": false,
+      "selfHosted": true
+    },
+    {
+      "name": "Self-hosted timeout maximum",
+      "input": {
+        "timeoutMs": 86400000
+      },
+      "hosted": false,
+      "selfHosted": true
+    },
+    {
+      "name": "Excessive timeout",
+      "input": {
+        "timeoutMs": 86400001
+      },
+      "hosted": false,
+      "selfHosted": false
+    },
+    {
+      "name": "Fractional attempts",
+      "input": {
+        "maxAttempts": 1.5
+      },
+      "hosted": false,
+      "selfHosted": false
+    },
+    {
+      "name": "No attempts",
+      "input": {
+        "maxAttempts": 0
+      },
+      "hosted": false,
+      "selfHosted": false
+    },
+    {
+      "name": "Maximum attempts",
+      "input": {
+        "maxAttempts": 1000
+      },
+      "hosted": true,
+      "selfHosted": true
+    },
+    {
+      "name": "Too many attempts",
+      "input": {
+        "maxAttempts": 1001
+      },
+      "hosted": false,
+      "selfHosted": false
+    },
+    {
+      "name": "Minimum priority",
+      "input": {
+        "priority": -32768
+      },
+      "hosted": true,
+      "selfHosted": true
+    },
+    {
+      "name": "Maximum priority",
+      "input": {
+        "priority": 32767
+      },
+      "hosted": true,
+      "selfHosted": true
+    },
+    {
+      "name": "Excessive priority",
+      "input": {
+        "priority": 32768
+      },
+      "hosted": false,
+      "selfHosted": false
+    },
+    {
+      "name": "Fractional priority",
+      "input": {
+        "priority": 0.5
+      },
+      "hosted": false,
+      "selfHosted": false
+    },
+    {
+      "name": "Minimum retry delay",
+      "input": {
+        "retryDelayMs": 1000
+      },
+      "hosted": true,
+      "selfHosted": true
+    },
+    {
+      "name": "Short retry delay",
+      "input": {
+        "retryDelayMs": 999
+      },
+      "hosted": false,
+      "selfHosted": false
+    },
+    {
+      "name": "Maximum retry delay",
+      "input": {
+        "retryDelayMs": 3600000
+      },
+      "hosted": true,
+      "selfHosted": true
+    },
+    {
+      "name": "Excessive retry delay",
+      "input": {
+        "retryDelayMs": 3600001
+      },
+      "hosted": false,
+      "selfHosted": false
+    },
+    {
+      "name": "Invalid key mode",
+      "input": {
+        "keyMode": "overwrite"
+      },
+      "hosted": false,
+      "selfHosted": false
+    },
+    {
+      "name": "Preserve run time",
+      "input": {
+        "keyMode": "preserve_run_at"
+      },
+      "hosted": true,
+      "selfHosted": true
+    },
+    {
+      "name": "Array inputs",
+      "input": {
+        "inputs": []
+      },
+      "hosted": false,
+      "selfHosted": false
+    },
+    {
+      "name": "Null input defaults",
+      "input": {
+        "inputs": null
+      },
+      "hosted": true,
+      "selfHosted": true
+    },
+    {
+      "name": "Long queue name",
+      "input": {
+        "queue": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      },
+      "hosted": false,
+      "selfHosted": false
+    },
+    {
+      "name": "Implicit runAt timezone",
+      "input": {
+        "runAt": "2026-09-09T09:00:00"
+      },
+      "hosted": false,
+      "selfHosted": false
+    }
+  ],
+  "crons": [
+    {
+      "name": "Defaults",
+      "input": {},
+      "hosted": true,
+      "selfHosted": true
+    },
+    {
+      "name": "No backfill",
+      "input": {
+        "backfillHours": 0
+      },
+      "hosted": true,
+      "selfHosted": true
+    },
+    {
+      "name": "Maximum backfill",
+      "input": {
+        "backfillHours": 8760
+      },
+      "hosted": true,
+      "selfHosted": true
+    },
+    {
+      "name": "Fractional backfill",
+      "input": {
+        "backfillHours": 0.5
+      },
+      "hosted": false,
+      "selfHosted": false
+    },
+    {
+      "name": "Negative backfill",
+      "input": {
+        "backfillHours": -1
+      },
+      "hosted": false,
+      "selfHosted": false
+    },
+    {
+      "name": "Excessive backfill",
+      "input": {
+        "backfillHours": 8761
+      },
+      "hosted": false,
+      "selfHosted": false
+    },
+    {
+      "name": "Extra cron field",
+      "input": {
+        "cron": "0 0 9 * * *"
+      },
+      "hosted": false,
+      "selfHosted": false
+    },
+    {
+      "name": "Random cron",
+      "input": {
+        "cron": "H 9 * * *"
+      },
+      "hosted": false,
+      "selfHosted": false
+    },
+    {
+      "name": "Question-mark cron",
+      "input": {
+        "cron": "0 9 * * ?"
+      },
+      "hosted": false,
+      "selfHosted": false
+    },
+    {
+      "name": "Nth weekday cron",
+      "input": {
+        "cron": "0 9 * * 1#2"
+      },
+      "hosted": false,
+      "selfHosted": false
+    },
+    {
+      "name": "Invalid timezone",
+      "input": {
+        "timezone": "invalid/timezone"
+      },
+      "hosted": false,
+      "selfHosted": false
+    },
+    {
+      "name": "Invalid overlap",
+      "input": {
+        "overlap": "replace"
+      },
+      "hosted": false,
+      "selfHosted": false
+    },
+    {
+      "name": "Queue overlap",
+      "input": {
+        "overlap": "queue"
+      },
+      "hosted": true,
+      "selfHosted": true
+    },
+    {
+      "name": "Null cron inputs",
+      "input": {
+        "inputs": null
+      },
+      "hosted": false,
+      "selfHosted": false
+    },
+    {
+      "name": "Array cron inputs",
+      "input": {
+        "inputs": []
+      },
+      "hosted": false,
+      "selfHosted": false
+    },
+    {
+      "name": "Missing required input",
+      "input": {
+        "requiredParameters": [
+          "customer"
+        ],
+        "inputs": {}
+      },
+      "hosted": false,
+      "selfHosted": false
+    },
+    {
+      "name": "False required input",
+      "input": {
+        "requiredParameters": [
+          "enabled"
+        ],
+        "inputs": {
+          "enabled": false
+        }
+      },
+      "hosted": true,
+      "selfHosted": true
+    },
+    {
+      "name": "Long self-hosted attempt",
+      "input": {
+        "timeoutMs": 86400000
+      },
+      "hosted": false,
+      "selfHosted": true
+    },
+    {
+      "name": "Hosted timeout maximum",
+      "input": {
+        "timeoutMs": 840000
+      },
+      "hosted": true,
+      "selfHosted": true
+    },
+    {
+      "name": "Last weekday of month",
+      "input": {
+        "cron": "0 9 * * 5L"
+      },
+      "hosted": false,
+      "selfHosted": false
+    },
+    {
+      "name": "Last day of month",
+      "input": {
+        "cron": "0 9 L * *"
+      },
+      "hosted": true,
+      "selfHosted": true
+    }
+  ],
+  "occurrences": [
+    {
+      "name": "UTC daily",
+      "cron": "0 9 * * *",
+      "timezone": "UTC",
+      "from": "2026-09-08T12:00:00Z",
+      "through": "2026-09-11T12:00:00Z",
+      "expected": [
+        "2026-09-09T09:00:00.000Z",
+        "2026-09-10T09:00:00.000Z",
+        "2026-09-11T09:00:00.000Z"
+      ]
+    },
+    {
+      "name": "Skip missing spring time",
+      "cron": "30 2 * * *",
+      "timezone": "Europe/Paris",
+      "from": "2026-03-28T12:00:00Z",
+      "through": "2026-04-01T12:00:00Z",
+      "expected": [
+        "2026-03-30T00:30:00.000Z",
+        "2026-03-31T00:30:00.000Z",
+        "2026-04-01T00:30:00.000Z"
+      ]
+    },
+    {
+      "name": "Repeated autumn time runs once",
+      "cron": "30 2 * * *",
+      "timezone": "Europe/Paris",
+      "from": "2026-10-24T12:00:00Z",
+      "through": "2026-10-27T12:00:00Z",
+      "expected": [
+        "2026-10-25T00:30:00.000Z",
+        "2026-10-26T01:30:00.000Z",
+        "2026-10-27T01:30:00.000Z"
+      ]
+    },
+    {
+      "name": "Recovery within repeated hour",
+      "cron": "30 2 * * *",
+      "timezone": "Europe/Paris",
+      "from": "2026-10-25T00:40:00Z",
+      "through": "2026-10-28T12:00:00Z",
+      "expected": [
+        "2026-10-26T01:30:00.000Z",
+        "2026-10-27T01:30:00.000Z",
+        "2026-10-28T01:30:00.000Z"
+      ]
+    }
+  ]
+}

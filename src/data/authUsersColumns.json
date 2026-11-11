@@ -1,0 +1,95 @@
+{
+  "columns": [
+    {
+      "name": "id",
+      "type": "uuid",
+      "isRequired": true,
+      "isPrimary": true,
+      "isUnique": false,
+      "isSystem": true,
+      "linkedColumn": null,
+      "defaultValue": "uuidv7()",
+      "description": ""
+    },
+    {
+      "name": "name",
+      "type": "text",
+      "isRequired": true,
+      "isPrimary": false,
+      "isUnique": false,
+      "isSystem": true,
+      "linkedColumn": null,
+      "defaultValue": null,
+      "description": ""
+    },
+    {
+      "name": "email",
+      "type": "text",
+      "isRequired": true,
+      "isPrimary": false,
+      "isUnique": true,
+      "isSystem": true,
+      "linkedColumn": null,
+      "defaultValue": null,
+      "description": ""
+    },
+    {
+      "name": "emailVerified",
+      "type": "boolean",
+      "isRequired": true,
+      "isPrimary": false,
+      "isUnique": false,
+      "isSystem": true,
+      "linkedColumn": null,
+      "defaultValue": "false",
+      "description": ""
+    },
+    {
+      "name": "image",
+      "type": "text",
+      "isRequired": false,
+      "isPrimary": false,
+      "isUnique": false,
+      "isSystem": true,
+      "linkedColumn": null,
+      "defaultValue": null,
+      "description": ""
+    },
+    {
+      "name": "roles",
+      "type": "text[]",
+      "isRequired": false,
+      "isPrimary": false,
+      "isUnique": false,
+      "isSystem": true,
+      "linkedColumn": null,
+      "defaultValue": null,
+      "description": ""
+    },
+    {
+      "name": "createdAt",
+      "type": "timestamp without time zone",
+      "isRequired": true,
+      "isPrimary": false,
+      "isUnique": false,
+      "isSystem": true,
+      "linkedColumn": null,
+      "defaultValue": "now()",
+      "description": ""
+    },
+    {
+      "name": "updatedAt",
+      "type": "timestamp without time zone",
+      "isRequired": true,
+      "isPrimary": false,
+      "isUnique": false,
+      "isSystem": true,
+      "linkedColumn": null,
+      "defaultValue": "now()",
+      "description": ""
+    }
+  ],
+  "reservedColumnNames": [
+    "password"
+  ]
+}

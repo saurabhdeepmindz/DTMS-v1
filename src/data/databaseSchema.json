@@ -1,0 +1,211 @@
+{
+  "tables": {
+    "auth.accounts": {
+      "schema": "auth",
+      "name": "accounts",
+      "columns": {
+        "id": {
+          "type": "uuid"
+        },
+        "accountId": {
+          "type": "text"
+        },
+        "providerId": {
+          "type": "text"
+        },
+        "userId": {
+          "type": "uuid"
+        },
+        "accessToken": {
+          "type": "text"
+        },
+        "refreshToken": {
+          "type": "text"
+        },
+        "idToken": {
+          "type": "text"
+        },
+        "accessTokenExpiresAt": {
+          "type": "timestamp without time zone"
+        },
+        "refreshTokenExpiresAt": {
+          "type": "timestamp without time zone"
+        },
+        "scope": {
+          "type": "text"
+        },
+        "password": {
+          "type": "text"
+        },
+        "createdAt": {
+          "type": "timestamp without time zone"
+        },
+        "updatedAt": {
+          "type": "timestamp without time zone"
+        }
+      }
+    },
+    "auth.sessions": {
+      "schema": "auth",
+      "name": "sessions",
+      "columns": {
+        "id": {
+          "type": "uuid"
+        },
+        "expiresAt": {
+          "type": "timestamp without time zone"
+        },
+        "token": {
+          "type": "text"
+        },
+        "createdAt": {
+          "type": "timestamp without time zone"
+        },
+        "updatedAt": {
+          "type": "timestamp without time zone"
+        },
+        "ipAddress": {
+          "type": "text"
+        },
+        "userAgent": {
+          "type": "text"
+        },
+        "userId": {
+          "type": "uuid"
+        }
+      }
+    },
+    "auth.users": {
+      "schema": "auth",
+      "name": "users",
+      "columns": {
+        "id": {
+          "type": "uuid"
+        },
+        "name": {
+          "type": "text"
+        },
+        "email": {
+          "type": "text"
+        },
+        "emailVerified": {
+          "type": "boolean"
+        },
+        "image": {
+          "type": "text"
+        },
+        "roles": {
+          "type": "text[]"
+        },
+        "createdAt": {
+          "type": "timestamp without time zone"
+        },
+        "updatedAt": {
+          "type": "timestamp without time zone"
+        }
+      }
+    },
+    "auth.verifications": {
+      "schema": "auth",
+      "name": "verifications",
+      "columns": {
+        "id": {
+          "type": "uuid"
+        },
+        "identifier": {
+          "type": "text"
+        },
+        "value": {
+          "type": "text"
+        },
+        "expiresAt": {
+          "type": "timestamp without time zone"
+        },
+        "createdAt": {
+          "type": "timestamp without time zone"
+        },
+        "updatedAt": {
+          "type": "timestamp without time zone"
+        }
+      }
+    },
+    "storage.privateFiles": {
+      "schema": "storage",
+      "name": "privateFiles",
+      "columns": {
+        "path": {
+          "type": "text"
+        },
+        "prefix": {
+          "type": "text"
+        },
+        "name": {
+          "type": "text"
+        },
+        "ext": {
+          "type": "text"
+        },
+        "type": {
+          "type": "text"
+        },
+        "size": {
+          "type": "bigint"
+        },
+        "tags": {
+          "type": "jsonb"
+        },
+        "signedUploadUrl": {
+          "type": "text"
+        },
+        "signedUploadUrlExpiresAt": {
+          "type": "timestamp with time zone"
+        },
+        "createdAt": {
+          "type": "timestamp with time zone"
+        },
+        "updatedAt": {
+          "type": "timestamp with time zone"
+        }
+      }
+    },
+    "storage.publicFiles": {
+      "schema": "storage",
+      "name": "publicFiles",
+      "columns": {
+        "path": {
+          "type": "text"
+        },
+        "prefix": {
+          "type": "text"
+        },
+        "name": {
+          "type": "text"
+        },
+        "ext": {
+          "type": "text"
+        },
+        "type": {
+          "type": "text"
+        },
+        "size": {
+          "type": "bigint"
+        },
+        "tags": {
+          "type": "jsonb"
+        },
+        "signedUploadUrl": {
+          "type": "text"
+        },
+        "signedUploadUrlExpiresAt": {
+          "type": "timestamp with time zone"
+        },
+        "createdAt": {
+          "type": "timestamp with time zone"
+        },
+        "updatedAt": {
+          "type": "timestamp with time zone"
+        }
+      }
+    }
+  }
+}

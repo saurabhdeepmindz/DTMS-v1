@@ -1,0 +1,125 @@
+[
+  {
+    "id": "8eb5c56d-23cc-4813-aa43-16b19aca7f0b",
+    "name": "Send welcome email",
+    "parameters": [],
+    "actions": {
+      "81853e1f-478f-423a-8b40-47bf33fad812": {
+        "id": "81853e1f-478f-423a-8b40-47bf33fad812",
+        "name": "Build Welcome Email",
+        "next": "df5bbe83-2ad3-4d7b-8513-4dab060a814f",
+        "type": "create-variable",
+        "description": "Build the email content from the sign up event.",
+        "variableName": "email_content",
+        "variableType": "object",
+        "variableValue": {
+          "code": "const user = context.event?.user || {};\nconst name = user.name || 'there';\nconst email = String(user.email || '');\nconst subject = 'Welcome!';\n\nconst text = [\n  `Hi ${name},`,\n  '',\n  'Welcome to our app.',\n  'We are excited to have you here.',\n].join('\\n');\n\nconst html = `<!doctype html>\n<html>\n  <head>\n    <meta charset=\"utf-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  </head>\n  <body style=\"margin:0;padding:0;background:#f6f7fb;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;\">\n    <table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" style=\"background:#f6f7fb;padding:24px 0;\">\n      <tr>\n        <td align=\"center\">\n          <table role=\"presentation\" width=\"600\" cellpadding=\"0\" cellspacing=\"0\" style=\"width:600px;max-width:600px;background:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 2px 12px rgba(16,24,40,.08);\">\n            <tr>\n              <td style=\"padding:24px;\">\n                <h1 style=\"margin:0 0 12px 0;font-size:22px;line-height:1.2;color:#101828;\">Welcome, ${name}</h1>\n                <p style=\"margin:0;font-size:16px;line-height:1.6;color:#344054;\">We are excited to have you here.</p>\n              </td>\n            </tr>\n          </table>\n        </td>\n      </tr>\n    </table>\n  </body>\n</html>`;\n\nreturn { to: email, subject, text, html };",
+          "__wwtype": "js"
+        },
+        "__wwdescription": "<p>Build the welcome email HTML and text content using <code>context.event.user</code>.</p><p>Tip: customize this content to match your brand and onboarding flow.</p>"
+      },
+      "df5bbe83-2ad3-4d7b-8513-4dab060a814f": {
+        "id": "df5bbe83-2ad3-4d7b-8513-4dab060a814f",
+        "args": {
+          "to": [
+            {
+              "name": {
+                "code": "context.event?.['user']?.['name']",
+                "__wwtype": "f",
+                "defaultValue": ""
+              },
+              "email": {
+                "code": "context.event?.['user']?.['email']",
+                "__wwtype": "f",
+                "defaultValue": ""
+              }
+            }
+          ],
+          "from": {
+            "name": "WeWeb",
+            "emailPrefix": "no-reply"
+          },
+          "subject": {
+            "code": "context.workflow?.variables?.['81853e1f-478f-423a-8b40-47bf33fad812']?.value?.subject",
+            "__wwtype": "f"
+          },
+          "_contentType": "html",
+          "_htmlContent": {
+            "code": "context.workflow?.variables?.['81853e1f-478f-423a-8b40-47bf33fad812']?.value?.html",
+            "__wwtype": "f",
+            "defaultValue": ""
+          },
+          "_textContent": {
+            "code": "context.workflow?.variables?.['81853e1f-478f-423a-8b40-47bf33fad812']?.value?.text",
+            "__wwtype": "f"
+          }
+        },
+        "name": "Send Welcome Email",
+        "next": null,
+        "type": "send-email",
+        "description": "Send the welcome email using WeWeb email.",
+        "__wwdescription": "<p>Send the email using WeWeb's native email system.</p>"
+      }
+    },
+    "firstAction": "81853e1f-478f-423a-8b40-47bf33fad812",
+    "firstErrorAction": null,
+    "meta": {},
+    "trigger": "weweb-auth/after-sign-up"
+  },
+  {
+    "id": "884d63a9-d139-419b-a588-926a97672e78",
+    "name": "Send OTP for password request",
+    "parameters": [],
+    "actions": {
+      "36cff5b1-a46f-4dd6-bd35-b5acd4fb1eab": {
+        "id": "36cff5b1-a46f-4dd6-bd35-b5acd4fb1eab",
+        "args": {
+          "to": {
+            "code": "const to = context.workflow?.variables?.['3b0eb094-2683-4611-908e-7ad036918a51']?.value?.to;\nreturn to ? [{ email: String(to), name: '' }] : [];",
+            "__wwtype": "js"
+          },
+          "from": {
+            "name": "WeWeb",
+            "emailPrefix": "no-reply"
+          },
+          "subject": {
+            "code": "context.workflow?.variables?.['3b0eb094-2683-4611-908e-7ad036918a51']?.value?.subject",
+            "__wwtype": "f"
+          },
+          "_contentType": "html",
+          "_htmlContent": {
+            "code": "context.workflow?.variables?.['3b0eb094-2683-4611-908e-7ad036918a51']?.value?.html",
+            "__wwtype": "f"
+          },
+          "_textContent": {
+            "code": "context.workflow?.variables?.['3b0eb094-2683-4611-908e-7ad036918a51']?.value?.text",
+            "__wwtype": "f"
+          }
+        },
+        "name": "Send Email",
+        "next": null,
+        "type": "send-email",
+        "description": "Send the OTP email using WeWeb email.",
+        "__wwdescription": "<p>Send the email using WeWeb's native email system.</p>"
+      },
+      "3b0eb094-2683-4611-908e-7ad036918a51": {
+        "id": "3b0eb094-2683-4611-908e-7ad036918a51",
+        "name": "Build Email Content",
+        "next": "36cff5b1-a46f-4dd6-bd35-b5acd4fb1eab",
+        "type": "create-variable",
+        "description": "Build the OTP email from the event payload.",
+        "variableName": "email_content",
+        "variableType": "object",
+        "variableValue": {
+          "code": "const email = String(context.event?.email || '');\nconst otp = String(context.event?.otp || '');\nconst subject = `${otp} is your password reset code`; // Putting OTP in subject for quick view\n\n// Clean text fallback for text-only email clients\nconst text = [\n  'Password Reset Request',\n  `Your verification code is: ${otp}`,\n  '',\n  'This code will expire 5 minutes.',\n  'If you did not request this, please ignore this email and ensure your account is secure.',\n].join('\\n');\n\nconst html = `<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"utf-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Reset your password</title>\n  </head>\n  <body style=\"margin:0;padding:0;background-color:#f9fafb;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;\">\n    <table role=\"presentation\" width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" style=\"background-color:#f9fafb;padding:48px 0;\">\n      <tr>\n        <td align=\"center\">\n          <table role=\"presentation\" width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" style=\"max-width:500px;background-color:#ffffff;border:1px solid #e5e7eb;border-radius:8px;overflow:hidden;\">\n            <tr>\n              <td style=\"padding:40px;\">\n                <h1 style=\"margin:0 0 16px 0;font-size:24px;font-weight:700;color:#111827;text-align:center;\">Reset your password</h1>\n                <p style=\"margin:0 0 24px 0;font-size:16px;line-height:1.5;color:#4b5563;text-align:center;\">\n                  Use the verification code below to access the password reset form. This code expires in <strong>5 minutes</strong>.\n                </p>\n                <div style=\"text-align:center;margin:32px 0;\">\n                  <span style=\"display:inline-block;background-color:#f3f4f6;border-radius:8px;padding:16px 24px;font-size:32px;letter-spacing:4px;color:#111827;font-weight:700;font-family:monospace;border:1px solid #d1d5db;\">\n                    ${otp}\n                  </span>\n                </div>\n                <hr style=\"border:0;border-top:1px solid #e5e7eb;margin:32px 0;\" />\n                <p style=\"margin:0;font-size:13px;line-height:1.5;color:#6b7280;text-align:center;\">\n                  <strong>Didn't request this?</strong><br />\n                  If you didn't try to reset your password, you can safely ignore this email. Someone may have typed your email address by mistake.\n                </p>\n              </td>\n            </tr>\n          </table>\n          <table role=\"presentation\" width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" style=\"max-width:500px;margin-top:24px;\">\n            <tr>\n              <td>\n                <p style=\"margin:0;font-size:12px;color:#9ca3af;text-align:center;\">\n                  &copy; ${new Date().getFullYear()} Your Company Name. All rights reserved.\n                </p>\n              </td>\n            </tr>\n          </table>\n        </td>\n      </tr>\n    </table>\n  </body>\n</html>`;\n\nreturn { to: email, subject, text, html };",
+          "__wwtype": "js"
+        },
+        "__wwdescription": "<p>Build the email content using <code>context.event.otp</code>.</p>"
+      }
+    },
+    "firstAction": "3b0eb094-2683-4611-908e-7ad036918a51",
+    "firstErrorAction": null,
+    "meta": {},
+    "trigger": "weweb-auth/request-otp"
+  }
+]
